@@ -18,7 +18,7 @@ public class App
         int maxThreads = 8;
         threadPool(maxThreads);
         
-        // secure("src/main/resources/keystores/keystore.p12", "arep123", "src/main/resources/keystores/cacerts.p12", "arep123");
+        secure("src/main/resources/keystores/keystorelocal.p12", "arep123", "src/main/resources/keystores/cacerts.p12", "arep123");
         
         staticFiles.location("/public");
 
@@ -88,6 +88,21 @@ public class App
                     return square;
                 });
             });
+        });
+        // CORS
+        options("/*", (request, response) -> {
+
+            String accessControlRequestHeaders = request.headers("Access-Control-Request-Headers");
+            if (accessControlRequestHeaders != null) {
+                response.header("Access-Control-Allow-Headers", accessControlRequestHeaders);
+            }
+
+            String accessControlRequestMethod = request.headers("Access-Control-Request-Method");
+            if (accessControlRequestMethod != null) {
+                response.header("Access-Control-Allow-Methods", accessControlRequestMethod);
+            }
+
+            return "OK";
         });
         // Using Route
         notFound((req, res) -> {

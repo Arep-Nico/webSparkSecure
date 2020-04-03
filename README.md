@@ -107,7 +107,7 @@ To use this method you have to use this path
 - {a} this numeric variable is to set the first value.
 - {b} this numeric variable is to set the second value.
 ```
-/api/v1/math/exponent.{a}&{b}
+/api/v1/math/exponent/{a}&{b}
 ```
 
 + **Example**:
