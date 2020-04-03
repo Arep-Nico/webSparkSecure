@@ -34,7 +34,7 @@ public class MathOperations implements Functions {
 
   @Override
   public Double exponent(Double a, Double b) {
-    Double res = Double.NaN;
+    Double res = 0.0;
     for (Integer i = 0; i < b; i++)
       res += a;
     return res;
